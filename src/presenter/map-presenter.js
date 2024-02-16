@@ -1,8 +1,8 @@
-import { render } from "../render";
-import SortView from "../view/sort-view";
-import ListEventsView from "../view/list-events-view";
-import PointEditingFormView from "../view/point-editing-form-view";
-import PointView from "../view/point-view";
+import { render } from '../render';
+import SortView from '../view/sort-view';
+import ListEventsView from '../view/list-events-view';
+import PointEditingFormView from '../view/point-editing-form-view';
+import PointView from '../view/point-view';
 
 export default class MapPresenter {
   constructor({ mapContainer }) {
