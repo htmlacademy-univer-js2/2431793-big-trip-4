@@ -10,14 +10,10 @@ export default class MapPresenter {
   }
 
   init() {
+    this.itemsOfList = [new PointEditingFormView().getTemplate(), new PointView().getTemplate(), new PointView().getTemplate(), new PointView().getTemplate()];
     render(new SortView(), this.mapContainer);
     render(
-      new ListEventsView(
-        new PointEditingFormView().getTemplate(),
-        new PointView().getTemplate(),
-        new PointView().getTemplate(),
-        new PointView().getTemplate()
-      ),
+      new ListEventsView({ items: this.itemsOfList }),
       this.mapContainer
     );
   }

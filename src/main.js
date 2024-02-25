@@ -7,7 +7,7 @@ const headerInfoContainer = document.querySelector('.trip-main');
 const filterContainer = document.querySelector('.trip-controls__filters');
 const mapContainer = document.querySelector('.trip-events');
 
-const mapPresenter = new MapPresenter({ mapContainer: mapContainer });
+const mapPresenter = new MapPresenter({ mapContainer });
 
 render(new TripInfoView(), headerInfoContainer, RenderPosition.AFTERBEGIN);
 render(new FilterView(), filterContainer);
