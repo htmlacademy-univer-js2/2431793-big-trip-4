@@ -1,29 +1,11 @@
-import { createElement } from '../render.js';
+import AbstractView from '../framework/view/abstract-view.js';
 
-function createNewTaskButtonTemplate(items) {
-  return `<ul class="trip-events__list">${items
-    .map((item) => `<li class="trip-events__item">${item}</li>`)
-    .join('')}</ul>`;
+function createNewTaskButtonTemplate() {
+  return '<ul class="trip-events__list"></ul>';
 }
 
-export default class ListEventsView {
-  constructor({ items }) {
-    this.items = items;
-  }
-
-  getTemplate() {
-    return createNewTaskButtonTemplate(this.items);
-  }
-
-  getElement() {
-    if (!this.element) {
-      this.element = createElement(this.getTemplate());
-    }
-
-    return this.element;
-  }
-
-  removeElement() {
-    this.element = null;
+export default class ListEventsView extends AbstractView{
+  get template() {
+    return createNewTaskButtonTemplate();
   }
 }
