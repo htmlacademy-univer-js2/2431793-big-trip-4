@@ -1,4 +1,4 @@
-import { getRandomArrayElement } from '../utils.js';
+import { getRandomArrayElement } from '../utils/common';
 
 const OFFER_TYPES_FLIGHT = ['Add luggage', 'Switch to comfort class', 'Add meal', 'Choose seats', 'Travel by train'];
 const PRICES_FLIGHT = [50, 80, 15, 5, 40];

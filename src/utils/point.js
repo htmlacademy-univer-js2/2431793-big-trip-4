@@ -1,5 +1,9 @@
 import dayjs from 'dayjs';
 import duration from 'dayjs/plugin/duration';
+import isSameOrAfter from 'dayjs/plugin/isSameOrAfter';
+import isSameOrBefore from 'dayjs/plugin/isSameOrBefore';
+dayjs.extend(isSameOrBefore);
+dayjs.extend(isSameOrAfter);
 dayjs.extend(duration);
 
 const TimePeriods = {
@@ -7,14 +11,6 @@ const TimePeriods = {
   minInDay: 1440,
   minInYear: 525600
 };
-
-function getRandomArrayElement(items) {
-  return items[Math.floor(Math.random() * items.length)];
-}
-
-function getRandomInteger(min, max) {
-  return Math.round((max - min) * Math.random() + min);
-}
 
 function humanizeDate(date, format) {
   return date ? dayjs(date).format(format) : dayjs().format(format);
@@ -34,13 +30,17 @@ function getDuration(dateFrom, dateTo) {
   }
 }
 
-function getLastWord(string) {
-  const words = string.split(' ');
-  return words.at(-1);
+function isFutureDate(dateFrom) {
+  return dayjs(dateFrom).isAfter(dayjs());
 }
 
-function upperFirstChar(string) {
-  return string.charAt(0).toUpperCase() + string.slice(1);
+function isPastDate(dateTo) {
+  return dayjs(dateTo).isBefore(dayjs());
 }
 
-export { getRandomArrayElement, getRandomInteger, getDuration, humanizeDate, getLastWord, upperFirstChar};
+function isPresentDate(dateFrom, dateTo) {
+  const now = dayjs();
+  return now.isSameOrAfter(dateFrom) && now.isSameOrBefore(dateTo);
+}
+
+export { humanizeDate, getDuration, isFutureDate, isPastDate, isPresentDate };
