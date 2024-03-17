@@ -1,5 +1,6 @@
 import { POINT_TYPES, DESTINATIONS } from '../const.js';
-import { getLastWord, upperFirstChar, humanizeDate } from '../utils.js';
+import { getLastWord, upperFirstChar } from '../utils/common.js';
+import { humanizeDate } from '../utils/point.js';
 import AbstractView from '../framework/view/abstract-view.js';
 
 const BLANK_POINT = {
